@@ -1,0 +1,27 @@
+name: Sync DAGs to Airflow VM
+
+on:
+  push:
+    branches:
+      - main  # Triggers the automation whenever you push code to the main branch
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout Source Code
+      uses: actions/checkout@v4
+
+    - name: Deploy files via SSH to VM
+      uses: appleboy/ssh-action@v1.0.3
+      with:
+        host: ${{ secrets.VM_HOST }}
+        username: ${{ secrets.VM_USERNAME }}
+        key: ${{ secrets.VM_SSH_KEY }}
+        port: 22
+        script: |
+          cd /home/kavindhivya2021/airflow/dags
+          # Safe reset in case files are out of sync
+          git fetch --all
+          git reset --hard origin/main
+          git pull origin main
