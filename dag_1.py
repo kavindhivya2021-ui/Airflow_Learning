@@ -19,8 +19,8 @@ with DAG(
     description='A basic template for a Bash pipeline',
     schedule_interval=None,             # "None" means it will only run manually when you click 'Trigger'
     start_date=datetime(2026, 1, 1),    # Start date matching the current timeline
-    catchup=False                     # Prevents running historical backfills upon activation
-    tags=[learning]
+    catchup=False,                     # Prevents running historical backfills upon activation
+    tags=['learning'],
 ) as dag:
 
     # 3. Define Task 1: Print a text string
