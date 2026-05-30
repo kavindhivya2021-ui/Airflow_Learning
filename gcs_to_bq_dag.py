@@ -26,7 +26,7 @@ with DAG(
         task_id='gcs_to_bigquery_task',
         bucket='your-bucket-name',                 # Just the bucket name, no "gs://"
         source_objects=['data/my_file.csv'],       # Path inside the bucket
-        destination_project_dataset_table='your_project.your_dataset.your_table',
+        destination_project_dataset_table='subtle-anthem-497411-u0.staging.customers',
         source_format='CSV',
         skip_leading_rows=1,                       # Skips header row if CSV has one
         autodetect=True,                           # Tells BQ to automatically infer the schema
