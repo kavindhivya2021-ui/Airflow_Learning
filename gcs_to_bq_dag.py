@@ -30,7 +30,7 @@ with DAG(
         source_format='CSV',
         skip_leading_rows=1,
         autodetect=True,
-        write_disposition='WRITE_TRUNCATE',
+        write_disposition='WRITE_APPEND',
     )
 
     load_csv_to_bq
