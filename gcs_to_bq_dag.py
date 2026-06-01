@@ -31,6 +31,7 @@ with DAG(
         skip_leading_rows=1,
         autodetect=True,
         write_disposition='WRITE_APPEND',
+        schema_update_options=["ALLOW_FIELD_ADDITION"]
     )
 
     load_csv_to_bq
